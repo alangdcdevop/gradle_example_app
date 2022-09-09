@@ -32,7 +32,7 @@ jobs:
         - name: Get the output time
           run: okteto login --token 5O6pAiSx21MjySILFXP8gPlK6ePjcd727HyKqKRxCyFOnbKN
         - name: Get the output time
-          run: okteto namespace
+          run: okteto namespace alangdcdevop
         - name: Get the output time
           run: kubeclt get pods
 # Docker (login and push to repo)
