@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
+    # Install tools
         - name: Get the output time
           run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
         - name: Get the output time
@@ -22,25 +23,31 @@ jobs:
           run: sudo mv ./kubectl /usr/local/bin/kubectl
         - name: Get the output time
           run: curl https://get.okteto.com -sSfL | sh
-        # check all tools
+    # check all tools
         - name: Get the output time
           run: kubectl version --client
         - name: Get the output time
-          run: docker login -u sepasoporteit -p @cicatriz22puntos@
-        - name: Get the output time
           run: docker --version
+    # Login to okteto and docker
         - name: Get the output time
           run: okteto login --token 5O6pAiSx21MjySILFXP8gPlK6ePjcd727HyKqKRxCyFOnbKN
+        - name: Get the output time
+          run: docker login -u sepasoporteit -p @cicatriz22puntos@
+    # Docker (push to repo)
+        - name: Get the output time
+          run: docker build . -t sepasoporteit/ejemplo:latest
+        - name: Get the output time
+          run: docker push sepasoporteit/ejemplo:latest
+    # Config Kubectl with okteto cli
         - name: Get the output time
           run: okteto namespace alangdcdevop
         - name: Get the output time
           run: okteto kubeconfig
         - name: Get the output time
           run: kubectl get pods
-# Docker (login and push to repo)
-  #  docker login -u sepasoporteit -p @cicatriz22puntos@
-  #  docker build . -t sepasoporteit/ejemplo:latest
-  #  docker push sepasoporteit/ejemplo:latest
+    # Update version in cluster
+        - name: Get the output time
+          run: kubectl apply -f deployment.yml
 
 
 # Okteto (install and excecution)
