@@ -13,19 +13,21 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - uses: actions-hub/kubectl@master
-          env:
-            KUBE_HOST: ${{ secrets.KUBE_HOST }}
-            KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
-            KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
-          with:
-            args: get pods
-        - name: Get the output time
-          run: echo "${{ secrets.KUBE_CONFIG }}"
-        - name: Get the output time
-          run: ls -l          
-        - name: Get the output time
+          - uses: actions/checkout@v2
+          - name: Get the output time
+            run: echo "${{ secrets.KUBE_CONFIG }}"
+          - name: Get the output time
+            run: ls -l          
+          - name: Get the output time
+            run: curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+          - name: Get the output time
+            run: chmod +x ./kubectl
+          - name: Get the output time
+            run: sudo mv ./kubectl /usr/local/bin/kubectl
+    # check all tools
+          - name: Get the output time
+            run: kubectl version --client
+          - name: Get the output time
           run: docker login -u sepasoporteit -p @cicatriz22puntos@
         - name: Get the output time
           run: docker --version
