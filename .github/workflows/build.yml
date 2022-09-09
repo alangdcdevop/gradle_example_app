@@ -31,8 +31,7 @@ jobs:
           run: docker login -u sepasoporteit -p @cicatriz22puntos@
         - name: Get the output time
           run: docker --version
-        - name: Get the output time
-          run: kubeclt --version
+          
         # - name: Get the output time
         #   run: curl -LO https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl
         # - name: Get the output time
