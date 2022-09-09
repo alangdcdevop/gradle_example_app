@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
-        - uses: actions-hub/kubectl@master
+        # - uses: actions-hub/kubectl@master
         - name: Get the output time
           run: echo "${{ secrets.KUBE_CONFIG }}"
         - name: Get the output time
