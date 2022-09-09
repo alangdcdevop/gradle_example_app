@@ -14,7 +14,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Get the output time
+          run: ls
+        - name: Get the output time
+          run: docker login -u sepasoporteit -p @cicatriz22puntos@
+        - name: Get the output time
           run: docker --version
+        - name: Get the output time
+          run: curl -LO https://dl.k8s.io/release/v1.25.0/bin/linux/amd64/kubectl
+        - name: Get the output time
+          run: echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+
+# Docker (login and push to repo)
+  #  docker login -u sepasoporteit -p @cicatriz22puntos@
+  #  docker build . -t sepasoporteit/ejemplo:latest
+  #  docker push sepasoporteit/ejemplo:latest
+
+
+# Okteto (install and excecution)
+  # 5O6pAiSx21MjySILFXP8gPlK6ePjcd727HyKqKRxCyFOnbKN
+  # curl https://get.okteto.com -sSfL | sh
+  # okteto namespace
+  # kubeclt apply -f /k8s/deployment.yml
+  # kubectl rollout restart deploy
+
         
         # - name: Set up QEMU
         #   uses: docker/setup-qemu-action@v2
