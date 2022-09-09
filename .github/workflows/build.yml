@@ -13,16 +13,34 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+       - name: Get the output time
+         run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+      # - uses: actions/checkout@v2
+      #   with:
+      #     fetch-depth: 0
+      # - uses: sonarsource/sonarqube-scan-action@master
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       # If you wish to fail your job when the Quality Gate is red, uncomment the
       # following lines. This would typically be used to fail a deployment.
       # - uses: sonarsource/sonarqube-quality-gate-action@master
       #   timeout-minutes: 5
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+# Docker (login and push to repo)
+  #  docker login -u sepasoporteit -p @cicatriz22puntos@
+  #  docker build . -t sepasoporteit/ejemplo:latest
+  #  docker push sepasoporteit/ejemplo:latest
+
+
+# Okteto (install and excecution)
+  # 5O6pAiSx21MjySILFXP8gPlK6ePjcd727HyKqKRxCyFOnbKN
+  # curl https://get.okteto.com -sSfL | sh
+  # okteto namespace
+  # kubeclt apply -f /k8s/deployment.yml
+  # kubectl rollout restart deploy
+
+
