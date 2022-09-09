@@ -27,6 +27,7 @@ jobs:
         - name: Build and push
           uses: docker/build-push-action@v3
           with:
+            file: ./Dockerfile
             context: .
             tags: sepasoporteit/ejemplo:latest          
             push: true
