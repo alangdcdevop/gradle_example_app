@@ -13,10 +13,10 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+        - uses: actions/checkout@v2
         - name: Get the output time
           run: pwd
-        - uses: actions/checkout@v2
-          name: Get the output time
+        - name: Get the output time
           run: ls -l          
         - name: Get the output time
           run: docker login -u sepasoporteit -p @cicatriz22puntos@
