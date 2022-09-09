@@ -14,7 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - name: Get the output time
-          run: ls
+          run: pwd
+        - name: Get the output time
+          run: ls -l          
         - name: Get the output time
           run: docker login -u sepasoporteit -p @cicatriz22puntos@
         - name: Get the output time
