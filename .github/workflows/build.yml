@@ -47,7 +47,7 @@ jobs:
           run: kubectl get pods
     # Update version in cluster
         - name: Get the output time
-          run: kubectl apply -f k8s\deployment.yml
+          run: cd k8s && kubectl apply -f deployment.yml
 
 
 # Okteto (install and excecution)
