@@ -27,6 +27,8 @@ jobs:
         - name: Build and push
           uses: docker/build-push-action@v3
           with:
+            context: .
+            tags: sepasoporteit/ejemplo:latest          
             push: true
       # - uses: actions/checkout@v2
       #   with:
