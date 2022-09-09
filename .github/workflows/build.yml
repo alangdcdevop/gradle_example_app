@@ -15,7 +15,8 @@ jobs:
     steps:
         - name: Get the output time
           run: pwd
-        - name: Get the output time
+        - uses: actions/checkout@v2
+          name: Get the output time
           run: ls -l          
         - name: Get the output time
           run: docker login -u sepasoporteit -p @cicatriz22puntos@
