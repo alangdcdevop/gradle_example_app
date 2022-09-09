@@ -15,8 +15,12 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - uses: actions-hub/kubectl@master
-            env: # Or as an environment variable
-              credentials: ${{ secrets.KUBE_CONFIG }}
+          env:
+            KUBE_HOST: ${{ secrets.KUBE_HOST }}
+            KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
+            KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+          with:
+            args: get pods
         - name: Get the output time
           run: echo "${{ secrets.KUBE_CONFIG }}"
         - name: Get the output time
